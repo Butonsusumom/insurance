@@ -15,15 +15,15 @@ public class Policy {
     @Column(name="police_number",unique=true)
     private String policeNumber;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="person_id")
     private Person person;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="condition_id")
     private TermCondition condition;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="object_id")
     private InsuranceObject object;
 }

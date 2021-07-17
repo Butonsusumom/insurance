@@ -3,7 +3,8 @@ package com.tsybulko.insurance.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
+
 
 @Data
 @Entity
@@ -20,6 +21,7 @@ public class TermCondition {
     private Integer price;
 
     @Column(name="insurance_type")
+    @Enumerated(EnumType.STRING)
     private InsType insType;
 
     @Column(name="start_date")
@@ -27,4 +29,6 @@ public class TermCondition {
 
     @Column(name="end_date")
     private Date endDate;
+
+
 }

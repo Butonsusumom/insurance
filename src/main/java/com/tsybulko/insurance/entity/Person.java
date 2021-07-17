@@ -1,5 +1,6 @@
 package com.tsybulko.insurance.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -33,5 +34,10 @@ public class Person {
 
     @Column(name="phone")
     private String phone;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id")
+    @JsonIgnore
+    List<Policy> policyList = new ArrayList<>();
 
 }
