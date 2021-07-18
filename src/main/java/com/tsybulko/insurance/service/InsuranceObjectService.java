@@ -10,9 +10,11 @@ import java.util.Optional;
 public interface InsuranceObjectService {
     List<InsuranceObject> findAll();
     Optional<InsuranceObject> findById(Integer id);
+    List<InsuranceObject> findByOwnerId(Integer id);
     void addInsuranceObject(InsuranceObject insuranceObject);
     void editInsuranceObject(InsuranceObject insuranceObject, Integer id);
     void delete(InsuranceObject insuranceObject);
     void deleteById(Integer id);
     void deleteAll();
+
 }

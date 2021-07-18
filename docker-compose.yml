@@ -6,8 +6,8 @@ services:
     image: mysql:latest
     container_name: mysql-db2
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=insurance
+      - MYSQL_USER=insurance_root
     ports:
       - "3306:3306"
     restart: always
@@ -24,8 +24,8 @@ services:
     depends_on:
       - db
     environment:
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_USERNAME: insurance_root
+      SPRING_DATASOURCE_PASSWORD: insurance
 
 
 
@@ -44,5 +44,5 @@ services:
       - db                                #dependency name (which is defined with this name 'db' in this file earlier)
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db2:3306/insurance?createDatabaseIfNotExist=true
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_USERNAME: insurance_root
+      SPRING_DATASOURCE_PASSWORD: insurance

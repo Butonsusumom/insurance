@@ -20,15 +20,15 @@ public class TermConditionDTO {
     private String description;
 
     @NotNull(message = "{valid.price.notNull}")
-    @Digits(integer=10, fraction=2, message = "{valid..notNull}")
+    @Digits(integer=10, fraction=2, message = "{valid.price.digits}")
     private Integer price;
 
-    @Column(name="insurance_type")
+    @NotNull(message = "{valid.instype.notNull}")
     private InsType insType;
 
-    @Column(name="start_date")
+    @NotNull(message = "{valid.startdate.notNull}")
     private Date startDate;
 
-    @Column(name="end_date")
+    @NotNull(message = "{valid.enddate.notNull}")
     private Date endDate;
 }

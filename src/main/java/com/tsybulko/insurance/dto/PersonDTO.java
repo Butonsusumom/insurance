@@ -18,7 +18,7 @@ public class PersonDTO {
     private Integer id;
 
     @NotBlank(message = "{valid.name.notNull}")
-    @Size(min = 2, message = "{valid.firstname.size.min3}")
+    @Size(min = 2, message = "{valid.firstname.size.min2}")
     private String firstName;
 
     @NotBlank(message = "{valid.name.notNull}")

@@ -14,7 +14,7 @@ import javax.validation.constraints.Pattern;
 @NoArgsConstructor
 public class VehicleDTO extends InsuranceObjectDTO{
     @NotNull(message = "{valid.licence.notNull}")
-    @Pattern(regexp = "^[a-zA-Z]{2}-\\d\\d-(19\\d\\d|20[01][0-9])-\\d{7}$")
+    @Pattern(regexp = "^[a-zA-Z]{2}-\\d\\d-(19\\d\\d|20[01][0-9])-\\d{7}$",message = "{valid.licence.format}")
     //TN-42-1998-9876543 - example
     private String driversLicence;
 

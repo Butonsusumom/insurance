@@ -1,6 +1,7 @@
 package com.tsybulko.insurance.service;
 
 import com.tsybulko.insurance.entity.InsuranceObject;
+import com.tsybulko.insurance.entity.Person;
 import com.tsybulko.insurance.repository.InsuranceObjectRepository;
 import com.tsybulko.insurance.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class InsuranceObjectServiceImpl implements InsuranceObjectService{
     @Autowired
     private InsuranceObjectRepository insuranceObjectRepository;
 
+    @Autowired
+    private PersonRepository personRepository;
+
     @Override
     public List<InsuranceObject> findAll() {
         return insuranceObjectRepository.findAll();
@@ -23,6 +27,12 @@ public class InsuranceObjectServiceImpl implements InsuranceObjectService{
     @Override
     public Optional<InsuranceObject> findById(Integer id) {
         return insuranceObjectRepository.findById(id);
+    }
+
+    @Override
+    public List<InsuranceObject> findByOwnerId(Integer id) {
+        Optional<Person> person = personRepository.findById(id);
+        return insuranceObjectRepository.findInsuranceObjectsByOwner(person);
     }
 
     @Override

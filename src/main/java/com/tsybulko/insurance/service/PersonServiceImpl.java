@@ -3,9 +3,10 @@ package com.tsybulko.insurance.service;
 import com.tsybulko.insurance.entity.Person;
 import com.tsybulko.insurance.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,8 +15,8 @@ public class PersonServiceImpl implements PersonService{
     private PersonRepository personRepository;
 
     @Override
-    public List<Person> findAll() {
-        return personRepository.findAll();
+    public Page<Person> findAll(Pageable pageable) {
+        return personRepository.findAll(pageable);
     }
 
     public Optional<Person> findById(Integer id) {

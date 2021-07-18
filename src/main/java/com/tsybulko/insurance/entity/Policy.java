@@ -15,7 +15,7 @@ public class Policy {
     @Column(name="police_number",unique=true)
     private String policeNumber;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name="person_id")
     private Person person;
 
@@ -23,7 +23,7 @@ public class Policy {
     @JoinColumn(name="condition_id")
     private TermCondition condition;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="object_id")
     private InsuranceObject object;
 }
