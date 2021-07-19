@@ -7,7 +7,6 @@ services:
     container_name: mysql-db2
     environment:
       - MYSQL_ROOT_PASSWORD=insurance
-      - MYSQL_USER=root
     ports:
       - "3306:3306"
     restart: always
