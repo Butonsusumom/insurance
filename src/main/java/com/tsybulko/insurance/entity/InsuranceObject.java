@@ -29,7 +29,7 @@ public abstract class InsuranceObject {
     @Id
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="owner_id")
     private Person owner;
 
